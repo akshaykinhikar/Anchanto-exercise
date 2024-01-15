@@ -30,7 +30,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/styles-ar.scss",
+                "bundleName": "arabicStyle"
+              },
+              {
+                "input": "src/styles-en.scss",
+                "bundleName": "englishStyle"
+              }
             ],
             "scripts": []
           },
@@ -93,12 +101,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles-en.scss",
+              "src/styles-ar.scss",
+              "src/styles-br.scss"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

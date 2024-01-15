@@ -6,6 +6,8 @@
       [class.active]="translateService.currentLang !== 'pt-BR'">English</button>
     <button type="button" class="btn btn-sm btn-outline-secondary" (click)="changeLanguage('pt-BR')"
       [class.active]="translateService.currentLang === 'pt-BR'">Português</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="changeLanguage('ar-UAE')"
+      [class.active]="translateService.currentLang === 'pt-BR'">Arabic</button>
   </div>
 
   <h3>{{ "hello" | translate: { name: "Angular" } }}</h3>
