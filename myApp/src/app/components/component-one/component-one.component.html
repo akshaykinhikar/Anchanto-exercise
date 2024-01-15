@@ -1,0 +1,11 @@
+<select aria-placeholder="Please select country" (change)="updateSelection($event?.target)">
+    <option value="" style="cursor: none;"> Please select country </option>
+    <option *ngFor="let country of countryList"> {{country}} </option>
+</select>
+
+
+<p>component-one works!</p>
+<p *ngIf="selectedCountry">
+    Selected Country is {{selectedCountry}}
+
+</p>
