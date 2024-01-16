@@ -24,7 +24,8 @@ export class ComponentOneComponent implements OnInit {
     // this.cmsService.updateCountrySelection("India")
   }
 
-  updateSelection (data: any) {
-    this.cmsService.updateCountrySelection(data?.value);
+  updateSelection (event: any) {
+    if(event && event.target && event.target.value)
+    this.cmsService.updateCountrySelection(event.target.value);
   }
 }
