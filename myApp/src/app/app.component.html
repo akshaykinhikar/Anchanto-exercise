@@ -19,3 +19,9 @@
 
   <h3>{{ "hello" | translate: { name: "Angular" } }}</h3>
 </div>
+
+<h1>Current Status is :
+  <span [ngClass]="networkStat ? 'connected': 'not-connected'">
+    {{networkStat? 'Connected' : 'Dis-connected'}}
+  </span>
+</h1>

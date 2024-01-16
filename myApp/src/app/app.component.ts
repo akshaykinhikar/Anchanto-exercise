@@ -1,16 +1,45 @@
-import { Component, Inject } from '@angular/core';
+
+import { Component, Inject, OnDestroy, OnInit  } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { NetworkService } from './network.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent  {
+
+export class AppComponent implements OnInit, OnDestroy  {
+
+  networkStat: boolean = false; // default flag
+  networkStat$: Subscription = Subscription.EMPTY; // defined observable 
+
 
   constructor(public translateService: TranslateService,
-    @Inject(DOCUMENT) private document: Document) {
+    @Inject(DOCUMENT) private document: Document,
+    private networkService: NetworkService) {
+  }
+
+  ngOnInit(): void {
+    /* 
+    used service to fetch status using Observable
+    */
+    this.networkStat$ = this.networkService.checkNetStat().subscribe({
+      next: res => {
+        this.networkStat = res;
+        console.log('this.networkStat', this.networkStat)
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
+    
+  }
+
+  ngOnDestroy(): void {
+    this.networkStat$.unsubscribe();
   }
 
   public changeLanguage(lang: string) {
