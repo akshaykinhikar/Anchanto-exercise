@@ -3,3 +3,19 @@
 <app-component-one></app-component-one>
 <app-component-two></app-component-two>
 <app-component-three></app-component-three>
+
+
+<div class="container-fluid py-3">
+  <h1>Angular Internationalization (i18n)</h1>
+
+  <div class="btn-group btn-group-sm py-5">
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="changeLanguage('en-US')"
+      [class.active]="translateService.currentLang !== 'pt-BR'">English</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="changeLanguage('pt-BR')"
+      [class.active]="translateService.currentLang === 'pt-BR'">Português</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="changeLanguage('ar-UAE')"
+      [class.active]="translateService.currentLang === 'pt-BR'">Arabic</button>
+  </div>
+
+  <h3>{{ "hello" | translate: { name: "Angular" } }}</h3>
+</div>
